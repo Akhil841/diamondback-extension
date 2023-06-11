@@ -277,7 +277,7 @@ impl Session {
                 //the second goes to [rsp + 16], etc.
                 if tail_position {
                     let mut memlocs: Vec<MemRef> = Vec::new();
-                    for (i, arg) in args.iter().enumerate() {
+                    for (_i, arg) in args.iter().enumerate() {
                         let (nextcx, mem) = currcx.next_local();
                         self.compile_expr(&currcx, Loc::Mem(mem), arg, false, false);
                         memlocs.push(mem);
@@ -294,8 +294,8 @@ impl Session {
                     self.emit_instr(Instr::Pop(Loc::Reg(R9)));
                     //let mut ctr = 0;
                     //pop arguments off stack
-                    for (i, arg) in args.iter().enumerate() {
-                        let (nextcx, mem) = currcx.next_local();
+                    for (_i, _arg) in args.iter().enumerate() {
+                        let (nextcx, _mem) = currcx.next_local();
                         self.emit_instr(Instr::Pop(Loc::Reg(R10)));
                         currcx = nextcx;
                         //ctr = ctr + 1;

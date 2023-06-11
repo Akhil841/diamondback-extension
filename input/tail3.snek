@@ -1,0 +1,8 @@
+(fun (fibonacci n cur tot)
+    (if (= n 0)
+        cur
+        (fibonacci (sub1 n) tot (+ cur tot))
+    )
+)
+
+(fibonacci 50 0 1)

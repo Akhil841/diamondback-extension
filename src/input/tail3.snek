@@ -1,8 +1,0 @@
-(fun (sumrec total i)
-    (if (= i 0)
-        total
-        (sumrec (add1 total) (sub1 i))
-    )
-)
-
-(+ (sumrec 0 1000000000) 5)

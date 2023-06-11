@@ -2,6 +2,283 @@ mod infra;
 
 // Your tests go here!
 success_tests! {
+    // Number and Boolean Literals
+    {
+        name: adder_num,
+        file: "adder_num.snek",
+        expected: "644",
+    },
+    {
+        name: cobra_false_val,
+        file: "cobra_false_val.snek",
+        expected: "false",
+    },
+
+    // Input Expression
+    {
+        name: cobra_input_default,
+        file: "cobra_input0.snek",
+        expected: "false",
+    },
+    {
+        name: cobra_input_bool,
+        file: "cobra_input0.snek",
+        input: "true",
+        expected: "true",
+    },
+    {
+        name: cobra_input_num,
+        file: "cobra_input0.snek",
+        input: "123",
+        expected: "123",
+    },
+
+    // Simple Number Expressions
+    {
+        name: adder_add1,
+        file: "adder_add1.snek",
+        expected: "73",
+    },
+    {
+        name: adder_add1_sub1,
+        file: "adder_add1_sub1.snek",
+        expected: "4",
+    },
+    {
+        name: cobra_add_num,
+        file: "cobra_add.snek",
+        input: "10",
+        expected: "15",
+    },
+
+    // Nested Arithmetic Expressions
+    {
+        name: boa_nested_arith0,
+        file: "boa_nested_arith0.snek",
+        expected: "35",
+    },
+    {
+        name: boa_nested_arith1,
+        file: "boa_nested_arith1.snek",
+        expected: "25",
+    },
+    {
+        name: boa_nested_arith2,
+        file: "boa_nested_arith2.snek",
+        expected: "0",
+    },
+    {
+        name: cobra_nested_arith3,
+        file: "cobra_nested_arith3.snek",
+        input: "8",
+        expected: "1117",
+    },
+    {
+        name: boa_nested_arith4,
+        file: "boa_nested_arith4.snek",
+        expected: "-1",
+    },
+
+    // Dynamic Type Checks with isnum/isbool
+    {
+        name: cobra_type_check_succ0,
+        file: "cobra_isnum.snek",
+        expected: "false",
+    },
+    {
+        name: cobra_type_check_succ1,
+        file: "cobra_isnum.snek",
+        input: "547",
+        expected: "true",
+    },
+    {
+        name: cobra_type_check_succ2,
+        file: "cobra_isnum.snek",
+        input: "true",
+        expected: "false",
+    },
+    {
+        name: cobra_type_check_succ3,
+        file: "cobra_isbool.snek",
+        expected: "true",
+    },
+    {
+        name: cobra_type_check_succ4,
+        file: "cobra_isbool.snek",
+        input: "689",
+        expected: "false",
+    },
+    {
+        name: cobra_type_check_succ5,
+        file: "cobra_type_check_succ5.snek",
+        expected: "true",
+    },
+
+    // Comparison Expressions
+    {
+        name: cobra_compare_expr_succ0,
+        file: "cobra_compare_expr_succ0.snek",
+        expected: "true",
+    },
+
+    {
+        name: cobra_compare_expr_succ2,
+        file: "cobra_compare_expr_succ2.snek",
+        expected: "true",
+    },
+
+    // Let expressions
+    {
+        name: boa_binding0,
+        file: "boa_binding0.snek",
+        expected: "5",
+    },
+    {
+        name: boa_binding1,
+        file: "boa_binding1.snek",
+        expected: "-5",
+    },
+
+    {
+        name: boa_binding_expr,
+        file: "boa_binding_expr.snek",
+        expected: "1225",
+    },
+    {
+        name: boa_binding_nested,
+        file: "boa_binding_nested.snek",
+        expected: "1",
+    },
+
+    {
+        name: boa_binding_chain,
+        file: "boa_binding_chain.snek",
+        expected: "3",
+    },
+    {
+        name: boa_binding_nested_chain,
+        file: "boa_binding_nested_chain.snek",
+        expected: "12",
+    },
+
+    // Let expressions with shadowing
+    {
+        name: boa_shadowed_binding_succ0,
+        file: "boa_shadowed_binding_succ0.snek",
+        expected: "100",
+    },
+    {
+        name: boa_shadowed_binding_succ1,
+        file: "boa_shadowed_binding_succ1.snek",
+        expected: "7",
+    },
+    {
+        name: boa_shadowed_binding_succ2,
+        file: "boa_shadowed_binding_succ2.snek",
+        expected: "150",
+    },
+    {
+        name: boa_shadowed_binding_succ3,
+        file: "boa_shadowed_binding_succ3.snek",
+        expected: "5",
+    },
+    {
+        name: boa_shadowed_binding_succ4,
+        file: "boa_shadowed_binding_succ4.snek",
+        expected: "18",
+    },
+    {
+        name: boa_shadowed_binding_succ5,
+        file: "boa_shadowed_binding_succ5.snek",
+        expected: "5",
+    },
+    {
+        name: boa_shadowed_binding_succ6,
+        file: "boa_shadowed_binding_succ6.snek",
+        expected: "3",
+    },
+    {
+        name: cobra_shadowed_binding_succ7,
+        file: "cobra_shadowed_binding_succ7.snek",
+        expected: "200",
+    },
+
+    // Misc complex expressions with arithmetic and let bindings
+    {
+        name: boa_complex_expr,
+        file: "boa_complex_expr.snek",
+        expected: "6",
+    },
+    {
+        name: boa_quick_brown_fox,
+        file: "boa_quick_brown_fox.snek",
+        expected: "-3776",
+    },
+
+    // If expressions
+    {
+        name: cobra_if_expr_succ0,
+        file: "cobra_if_expr_succ0.snek",
+        expected: "10",
+    },
+    {
+        name: cobra_if_expr_succ1,
+        file: "cobra_if_expr_input.snek",
+        input: "635",
+        expected: "20",
+    },
+    {
+        name: cobra_if_expr_succ2,
+        file: "cobra_if_expr_succ2.snek",
+        expected: "8",
+    },
+    {
+        name: cobra_if_expr_succ3,
+        file: "cobra_if_expr_succ3.snek",
+        expected: "7",
+    },
+
+    // Set expr
+    {
+        name: cobra_set_expr_succ0,
+        file: "cobra_set_expr1.snek",
+        expected: "true",
+    },
+    {
+        name: cobra_set_expr_succ1,
+        file: "cobra_set_expr2.snek",
+        expected: "25",
+    },
+    {
+        name: cobra_set_expr_succ2,
+        file: "cobra_set_expr3.snek",
+        input: "25",
+        expected: "true",
+    },
+    {
+        name: cobra_set_expr_succ3,
+        file: "cobra_set_expr3.snek",
+        input: "20",
+        expected: "false",
+    },
+
+    {
+        name: cobra_loop_expr_succ0,
+        file: "cobra_loop_expr0.snek",
+        input: "3",
+        expected: "6",
+    },
+    {
+        name: cobra_loop_expr_succ1,
+        file: "cobra_loop_expr0.snek",
+        input: "7",
+        expected: "5040",
+    },
+    {
+        name: cobra_loop_expr_succ2,
+        file: "cobra_loop_expr1.snek",
+        expected: "-6",
+    },
     // Functions and calls
     {
         name: diamondback_odd_even1,
@@ -101,14 +378,305 @@ success_tests! {
 }
 
 runtime_error_tests! {
+    // integer overflow
+    {
+        name: cobra_number_overflow_fail0,
+        file: "cobra_number_overflow_fail0.snek",
+        expected: "overflow",
+    },
+    {
+        name: cobra_number_overflow_fail1,
+        file: "cobra_number_overflow_fail1.snek",
+        expected: "overflow",
+    },
+    {
+        name: cobra_number_overflow_fail2,
+        file: "cobra_add.snek",
+        input: "4611686018427387899",
+        expected: "overflow",
+    },
+    {
+        name: cobra_number_overflow_fail3,
+        file: "cobra_nested_arith3.snek",
+        input: "4611686018427387890",
+        expected: "overflow",
+    },
     {
         name: diamondback_eventually_overflows,
         file: "diamondback_eventually_overflows.snek",
         expected: "overflow",
     },
+
+    // type mismatch
+    {
+        name: cobra_invalid_argument_fail0,
+        file: "cobra_invalid_argument_fail0.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail1,
+        file: "cobra_invalid_argument_fail1.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail2,
+        file: "cobra_invalid_argument_fail2.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail3,
+        file: "cobra_invalid_argument_fail3.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail4,
+        file: "cobra_invalid_argument_fail4.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail5,
+        file: "cobra_invalid_argument_fail5.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail6,
+        file: "cobra_invalid_argument_fail6.snek",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail7,
+        file: "cobra_nested_arith3.snek",
+        input: "true",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail8,
+        file: "cobra_if_expr_input.snek",
+        input: "665",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail9,
+        file: "cobra_set_expr3.snek",
+        input: "true",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail10,
+        file: "cobra_loop_expr0.snek",
+        input: "5",
+        expected: "invalid argument",
+    },
+    {
+        name: cobra_invalid_argument_fail11,
+        file: "cobra_invalid_argument_fail11.snek",
+        expected: "invalid argument",
+    },
 }
 
 static_error_tests! {
+
+    // Invalid S-expressions
+    {
+        name: boa_parse_sexp_fail1,
+        file: "boa_parse_sexp_fail1.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_sexp_fail2,
+        file: "boa_parse_sexp_fail2.snek",
+        expected: "Invalid",
+    },
+
+    // Invalid tokens/operators
+    {
+        name: boa_parse_token_fail1,
+        file: "boa_parse_token_fail1.snek",
+        expected: "",
+    },
+    {
+        name: boa_parse_token_fail2,
+        file: "boa_parse_token_fail2.snek",
+        expected: "",
+    },
+    {
+        name: boa_parse_token_fail3,
+        file: "boa_parse_token_fail3.snek",
+        expected: "",
+    },
+    {
+        name: boa_parse_token_fail4,
+        file: "boa_parse_token_fail4.snek",
+        expected: "",
+    },
+
+
+    // Invalid/Out of bounds Number Literal
+    {
+        name: cobra_number_bounds_fail0,
+        file: "cobra_number_bounds_fail0.snek",
+        expected: "Invalid",
+    },
+    {
+        name: cobra_number_bounds_fail1,
+        file: "cobra_number_bounds_fail1.snek",
+        expected: "Invalid",
+    },
+
+    // Invalid operator arguments
+    {
+        name: boa_parse_op_fail1,
+        file: "boa_parse_op_fail1.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_op_fail2,
+        file: "boa_parse_op_fail2.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_op_fail3,
+        file: "boa_parse_op_fail3.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_op_fai4,
+        file: "boa_parse_op_fail4.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_op_fail5,
+        file: "boa_parse_op_fail5.snek",
+        expected: "",
+    },
+    {
+        name: cobra_parse_op_fail6,
+        file: "cobra_parse_op_fail6.snek",
+        expected: "Invalid",
+    },
+    {
+        name: cobra_parse_op_fail7,
+        file: "cobra_parse_op_fail7.snek",
+        expected: "Invalid",
+    },
+    {
+        name: cobra_parse_op_fail8,
+        file: "cobra_parse_op_fail8.snek",
+        expected: "Invalid",
+    },
+
+    // Invalid let expressions
+    {
+        name: boa_parse_let_nobindings_fail,
+        file: "boa_parse_let_nobindings_fail.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_let_improperargs_fail1,
+        file: "boa_parse_let_improperargs_fail1.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_let_improperargs_fail2,
+        file: "boa_parse_let_improperargs_fail2.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_let_improperargs_fail3,
+        file: "boa_parse_let_improperargs_fail3.snek",
+        expected: "",
+    },
+    {
+        name: boa_parse_let_improperargs_fail4,
+        file: "boa_parse_let_improperargs_fail4.snek",
+        expected: "Invalid",
+    },
+    {
+        name: boa_parse_let_improperargs_fail5,
+        file: "boa_parse_let_improperargs_fail5.snek",
+        expected: "keyword",
+    },
+
+    {
+        name: boa_duplicate_binding_fail0,
+        file: "boa_duplicate_binding_fail0.snek",
+        expected: "Duplicate binding",
+    },
+    {
+        name: boa_duplicate_binding_fail1,
+        file: "boa_duplicate_binding_fail1.snek",
+        expected: "Duplicate binding",
+    },
+    {
+        name: boa_duplicate_binding_fail2,
+        file: "boa_duplicate_binding_fail2.snek",
+        expected: "Duplicate binding",
+    },
+
+    // Invalid if expressions
+    {
+        name: cobra_parse_if_fail0,
+        file: "cobra_parse_if_fail0.snek",
+        expected: "Invalid",
+    },
+    {
+        name: cobra_parse_if_fail1,
+        file: "cobra_parse_if_fail1.snek",
+        expected: "Invalid",
+    },
+
+    // Unbound identifier
+    {
+        name: boa_unbound_identifier_fail0,
+        file: "boa_unbound_identifier_fail0.snek",
+        expected: "Unbound variable identifier x",
+    },
+    {
+        name: boa_unbound_identifier_fail1,
+        file: "boa_unbound_identifier_fail1.snek",
+        expected: "Unbound variable identifier y",
+    },
+    {
+        name: boa_unbound_identifier_fail2,
+        file: "boa_unbound_identifier_fail2.snek",
+        expected: "Unbound variable identifier x",
+    },
+    {
+        name: cobra_unbound_identifier_fail3,
+        file: "cobra_unbound_identifier_fail3.snek",
+        expected: "Unbound variable identifier z",
+    },
+    {
+        name: cobra_unbound_identifier_fail4,
+        file: "cobra_unbound_identifier_fail4.snek",
+        expected: "Unbound variable identifier t",
+    },
+    {
+        name: cobra_unbound_identifier_fail5,
+        file: "cobra_unbound_identifier_fail5.snek",
+        expected: "Unbound variable identifier x",
+    },
+
+    // Invalid block
+    {
+        name: cobra_parse_block_fail0,
+        file: "cobra_parse_block_fail0.snek",
+        expected: "Invalid",
+    },
+
+    // Invalid break
+    {
+        name: cobra_invalid_break_fail0,
+        file: "cobra_invalid_break_fail0.snek",
+        expected: "break",
+    },
+
+    // Invalid loop
+    {
+        name: cobra_invalid_loop_fail0,
+        file: "cobra_invalid_loop_fail0.snek",
+        expected: "Invalid",
+    },
     // Invalid function
     {
         name: diamondback_fun_duplicate_parameters_fail0,
