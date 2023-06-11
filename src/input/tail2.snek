@@ -1,0 +1,15 @@
+(fun (sumrec1 total i)
+    (if (= i 0)
+        total
+        (sumrec2 (add1 total) (sub1 i))
+    )
+)
+
+(fun (sumrec2 total i)
+    (if (= i 0)
+        total
+        (sumrec1 (add1 total) (sub1 i))
+    )
+)
+
+(sumrec1 0 1000000000)
