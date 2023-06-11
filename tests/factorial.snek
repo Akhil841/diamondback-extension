@@ -1,0 +1,11 @@
+(fun (addrec total i)
+    (if (= i 0)
+        total
+        (block
+            (snek-printstack)
+            (addrec (+ total i) (sub1 i))
+        )
+    )
+)
+
+(addrec 0 3)
